@@ -34,7 +34,7 @@ def comentario_generator(api_key, comentario_base):
             {"role": "system", "content": """
             Te voy a entregar un comentario sobre un candidato.
             Necesito que generes un nuevo comentario corto, en lenguaje popular, apoyando el comentario entregado.
-            Entrega el resultado directo, sin textos adicionales.
+            Entrega el resultado directo, sin textos adicionales. Siempre agrega al final del comentario "#Salsacia2024"
             """},
             {"role": "user", "content": f"""Comentario: {comentario_base}"""}
         ]
