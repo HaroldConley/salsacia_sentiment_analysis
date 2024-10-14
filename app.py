@@ -13,8 +13,8 @@ def sentiment_analysis(api_key, comentario):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": """
-            Te voy a entregar un comentario y necesito que me indiques si es un comentario "A favor" o "En contra".
-            Dame la respuesta "Comentario a favor" o "Comentario en contra", sin más texto.
+            I am going to give you a comment and I need you to indicate whether it is a ‘For’ or ‘Against’ comment.
+            Give me the answer ‘Comment for’ or ‘Comment against’, without further text.
             """},
             {"role": "user", "content": f"""{comentario}"""}
         ]
@@ -32,9 +32,9 @@ def comentario_generator(api_key, comentario_base):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": """
-            Te voy a entregar un comentario sobre un candidato.
-            Necesito que generes un nuevo comentario corto, en lenguaje popular, apoyando el comentario entregado.
-            Entrega el resultado directo, sin textos adicionales. Siempre agrega al final del comentario "#Salsacia2024"
+            I am going to give you a commentary on a candidate.
+            I need you to generate a new short comment, in popular language, supporting the submitted comment.
+            Deliver the result directly, without additional text. Always add at the end of the comment ‘#Salsacia2024’.
             """},
             {"role": "user", "content": f"""Comentario: {comentario_base}"""}
         ]
@@ -44,18 +44,18 @@ def comentario_generator(api_key, comentario_base):
 
 
 # Título WebApp
-st.title('Analizador de Sentimientos')
+st.title('Sentiment Analyser')
 
 # Subtítulo
-st.subheader('Escribe que opinas sobre el candidato AAA de Salsacia:')
+st.subheader("Write what you think about Salsacia's AAA candidate:")
 
 # Ingreso del comentario
-comentario = st.text_area("Escribe tu comentario aquí:")
+comentario = st.text_area("Write your comment here:")
 
 # Generación de la respuesta.
 # Agregue un botón "Analizar" a la interfaz de usuario
-if st.button('Analizar'):
-    with st.spinner('Analizando tu comentario...'):
+if st.button('Analyse'):
+    with st.spinner('Analysing your comment...'):
         # Procesamiento
         api_key = os.environ['OPENAI_API_KEY']
 
